@@ -7,4 +7,5 @@ import * as postsSaga from './postsSaga';
 
 export default function* watch() {
     yield all([takeEvery(types.GET_POSTS, postsSaga.requestPosts)]);
+    yield all([takeEvery(types.GET_THUMBNAILS, postsSaga.requestThumbnails)]);
 }

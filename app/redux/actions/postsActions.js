@@ -13,3 +13,19 @@ export function savePosts(payload) {
     payload: payload
     };
 }
+
+
+export function getThumbnails(payload) {
+  return {
+    type: types.GET_THUMBNAILS,
+    payload: payload
+  };
+}
+
+export function saveThumbnails(payload) {
+  return {
+  type: types.SAVE_THUMBNAILS,
+  payload: payload
+  };
+}
+

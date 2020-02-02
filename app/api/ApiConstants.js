@@ -15,5 +15,6 @@ export const ApiEndpoint = {
 
     //Auth
     GET_POSTS: '/posts',
+    GET_THUMBNAILS: '/photos?album=1'
 
 };

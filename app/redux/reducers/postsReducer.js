@@ -3,6 +3,7 @@ import * as types from '../actions/types';
 
 const initialState = {
     posts:[],
+    thumbnails:[]
 };
 
 export const postsReducer = createReducer(initialState, {
@@ -10,6 +11,12 @@ export const postsReducer = createReducer(initialState, {
         return {
             ...state,
             posts: action.payload
+        };
+    },
+    [types.SAVE_THUMBNAILS](state, action) {
+        return {
+            ...state,
+            thumbnails: action.payload
         };
     },
 

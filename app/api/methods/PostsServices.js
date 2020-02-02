@@ -14,3 +14,13 @@ export function getPost(){
     null
   );
 }
+
+export function getThumbnails(){
+  return Api(
+    ApiEndpoint.GET_THUMBNAILS,
+    Method.GET,
+    null,
+    null,
+    null
+  );
+}

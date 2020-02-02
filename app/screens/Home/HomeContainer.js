@@ -5,6 +5,7 @@ import ToolBar from '../../components/ToolBar';
 import { Container } from 'native-base';
 import ItemType from '../../components/ItemType';
 import { getPosts, savePosts } from '../../redux/actions/postsActions';
+import NavigationService from "../../navigation/NavigationService";
 
 class HomeContainer extends Component {
     constructor(props) {
@@ -15,14 +16,16 @@ class HomeContainer extends Component {
     }
 
     componentDidMount(){
-        if(!this.props.posts){
+        console.log(this.props.posts)
+        const posts = Object.values(this.props.posts)
+        if(posts.length == 0){
             this.props.getPosts({
                 callBack: this.onPostResponse
             });
         } 
     }
 
-    onPostResponse = () =>{
+    onPostResponse = response =>{
         console.log("On Response")
         this.setState({refresh: false});
     }
@@ -33,6 +36,13 @@ class HomeContainer extends Component {
             callBack: this.onPostResponse
         });
       }
+
+    navigate = (item) => {
+        console.log("Selected ",item.title)
+        NavigationService.navigate("DetailScreen", {
+            selectedItem: item
+        });
+    };
 
     render() {
         var savedPosts = [];
@@ -52,9 +62,9 @@ class HomeContainer extends Component {
                         }>
                     <FlatList
                     data={savedPosts}
-                    keyExtractor={(item, index) => item.id}
+                    keyExtractor={(item, index) => item.id.toString()}
                     renderItem={({ item }) => { return(
-                        <ItemType item={item}/>
+                        <ItemType item={item} onPress={()=> this.navigate(item)}/>
                     )}}/>
                     </ScrollView>
             </Container>
