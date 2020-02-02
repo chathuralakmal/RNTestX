@@ -1,0 +1,8 @@
+//LOADER
+export const SHOW_LOADER_MODAL = "SHOW_TRANSPARENT_LOADER_MODAL";
+export const HIDE_LOADER_MODAL = "HIDE_TRANSPARENT_LOADER_MODAL";
+
+// login
+export const GET_POSTS = 'GET_POSTS';
+export const SAVE_POSTS = 'SAVE_POSTS';
+
